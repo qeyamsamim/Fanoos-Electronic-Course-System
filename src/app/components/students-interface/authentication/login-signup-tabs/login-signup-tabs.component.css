@@ -1,0 +1,12 @@
+li {
+  width: 50%;
+  height: 45px;
+}
+
+li.active {
+  background: #51AFEE;
+}
+
+li.active a {
+  color: white;
+}

@@ -1,0 +1,13 @@
+div.card {
+  background-color: #f3f3f3ec;
+  border-color: #f3f3f3e0;
+}
+
+button.primary-cl {
+  color: white;
+}
+
+img {
+  height: 200px;
+  object-fit: cover;
+}
