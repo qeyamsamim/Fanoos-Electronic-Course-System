@@ -7,8 +7,10 @@ import { AllClassesComponent } from './components/students-interface/home/all-cl
 import { GradesComponent } from './components/students-interface/home/grades/grades.component';
 import { HomeComponent } from './components/students-interface/home/home.component';
 import { MyCertificatesComponent } from './components/students-interface/home/my-certificates/my-certificates.component';
+import { ClassDetailComponent } from './components/students-interface/home/my-classes/class-detail/class-detail.component';
 import { MyClassesComponent } from './components/students-interface/home/my-classes/my-classes.component';
 import { ProfileComponent } from './components/students-interface/home/profile/profile.component';
+import { QuizesComponent } from './components/students-interface/home/quizes/quizes.component';
 
 
 const routes: Routes = [
@@ -25,7 +27,14 @@ const routes: Routes = [
     component: HomeComponent,
     children: [
       { path: '', component: AllClassesComponent },
-      { path: 'my-classes', component: MyClassesComponent },
+      {
+        path: 'my-classes',
+        component: MyClassesComponent,
+        children: [
+          { path: 'class-detail', component: ClassDetailComponent }
+        ]
+      },
+      { path: 'quizes', component: QuizesComponent },
       { path: 'grades', component: GradesComponent },
       { path: 'my-certificates', component: MyCertificatesComponent },
       { path: 'profile', component: ProfileComponent }

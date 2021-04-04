@@ -11,14 +11,16 @@ export class MyClassesComponent implements OnInit {
   myClasses = [
     {
       name: 'Basic Accounting Class',
-      price: '200$',
+      enrollmentDate: 'March 2, 2021',
       btnText: 'View Class',
+      url: 'class-detail',
       imgURL: 'https://digitaldefynd.com/wp-content/uploads/2019/01/best-accounting-course-class-certification-training-online.jpg'
     },
     {
       name: 'Advanced QuickBooks',
-      price: '200$',
+      enrollmentDate: 'February 20, 2021',
       btnText: 'View Class',
+      url: 'class-detail',
       imgURL: 'https://www.hostdocket.com/wp-content/uploads/2019/10/QuickBooks-Desktop-2020-Whats-new-and-improved.png'
     }
   ];

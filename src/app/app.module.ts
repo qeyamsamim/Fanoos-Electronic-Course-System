@@ -22,6 +22,9 @@ import { ProfileComponent } from './components/students-interface/home/profile/p
 import { ClassListingComponent } from './shared/components/class-listing/class-listing.component';
 import { FilterPipe } from './shared/pipes/filter.pipe';
 import { FormsModule } from '@angular/forms';
+import { QuizesComponent } from './components/students-interface/home/quizes/quizes.component';
+import { FooterComponent } from './shared/components/footer/footer.component';
+import { ClassDetailComponent } from './components/students-interface/home/my-classes/class-detail/class-detail.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +44,10 @@ import { FormsModule } from '@angular/forms';
     MyCertificatesComponent,
     ProfileComponent,
     ClassListingComponent,
-    FilterPipe
+    FilterPipe,
+    QuizesComponent,
+    FooterComponent,
+    ClassDetailComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,169 @@
+<div class="container">
+  <div id="stepper1" class="bs-stepper">
+    <div class="bs-stepper-header">
+      <div class="step" data-target="#test-l-1">
+        <button class="step-trigger">
+          <span class="bs-stepper-circle">1</span>
+        </button>
+      </div>
+      <div class="line"></div>
+      <div class="step" data-target="#test-l-2">
+        <button class="step-trigger">
+          <span class="bs-stepper-circle">2</span>
+        </button>
+      </div>
+      <div class="line"></div>
+      <div class="step" data-target="#test-l-3">
+        <button class="step-trigger">
+          <span class="bs-stepper-circle">3</span>
+        </button>
+      </div>
+      <div class="line"></div>
+      <div class="step" data-target="#test-l-4">
+        <button class="step-trigger">
+          <span class="bs-stepper-circle">4</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="bs-stepper-content">
+      <form (ngSubmit)="onSubmit()">
+        <div id="test-l-1" class="content fade">
+          <div class="form-group">
+            <legend>This a question. Please Answer this question?</legend>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gridRadios" id="q1option1" value="option1">
+              <label class="form-check-label" for="gridRadios1">
+                This is the first option
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gridRadios" id="q1option2" value="option2">
+              <label class="form-check-label" for="gridRadios2">
+                This is the second option
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gridRadios" id="q1option3" value="option3">
+              <label class="form-check-label" for="gridRadios1">
+                This is the third option
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gridRadios" id="q1option4" value="option4">
+              <label class="form-check-label" for="gridRadios2">
+                This is the fourth option
+              </label>
+            </div>
+          </div>
+          <button (click)="next()" class="btn btn-primary">Next</button>
+        </div>
+        <div id="test-l-2" class="content fade">
+          <div class="form-group">
+            <legend>This a question. Please Answer this question?</legend>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gridRadios" id="q2option1" value="option1">
+              <label class="form-check-label" for="gridRadios1">
+                This is the first option
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gridRadios" id="q2option2" value="option2">
+              <label class="form-check-label" for="gridRadios2">
+                This is the second option
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gridRadios" id="q2option3" value="option3">
+              <label class="form-check-label" for="gridRadios1">
+                This is the third option
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gridRadios" id="q2option4" value="option4">
+              <label class="form-check-label" for="gridRadios2">
+                This is the fourth option
+              </label>
+            </div>
+          </div>
+          <button (click)="prev()" class="btn btn-primary float-left">Previous</button>
+          <button (click)="next()" class="btn btn-primary float-right">Next</button>
+        </div>
+        <div id="test-l-3" class="content">
+          <div class="form-group">
+            <legend>This a question. Please Answer this question?</legend>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gridRadios" id="option1" value="option1">
+              <label class="form-check-label" for="gridRadios1">
+                This is the first option
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gridRadios" id="option2" value="option2">
+              <label class="form-check-label" for="gridRadios2">
+                This is the second option
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gridRadios" id="option3" value="option3">
+              <label class="form-check-label" for="gridRadios1">
+                This is the third option
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gridRadios" id="option4" value="option4">
+              <label class="form-check-label" for="gridRadios2">
+                This is the fourth option
+              </label>
+            </div>
+          </div>
+          <button (click)="prev()" class="btn btn-primary float-left">Previous</button>
+          <button (click)="next()" class="btn btn-primary float-right">Next</button>
+        </div>
+        <div id="test-l-4" class="content">
+          <div class="form-group">
+            <legend>This a question. Please Answer this question?</legend>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gridRadios" id="option1" value="option1">
+              <label class="form-check-label" for="gridRadios1">
+                This is the first option
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gridRadios" id="option2" value="option2">
+              <label class="form-check-label" for="gridRadios2">
+                This is the second option
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gridRadios" id="option3" value="option3">
+              <label class="form-check-label" for="gridRadios1">
+                This is the third option
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gridRadios" id="option4" value="option4">
+              <label class="form-check-label" for="gridRadios2">
+                This is the fourth option
+              </label>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary mt-5">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- <div *ngFor="let item of stepperContent; let i = index;" [id]="item.id" class="content">
+  <div class="form-group">
+    <legend> {{ item.question }} </legend>
+    <div *ngFor="let options of item.answers" class="form-check">
+      <input class="form-check-input" type="radio" name="gridRadios" [id]="options.answerId" [value]="options.value" checked>
+      <label class="form-check-label" [for]="options.answerId">
+        {{ options.option }}
+      </label>
+    </div>
+  </div>
+  <button (click)="next()" class="btn btn-primary">Next</button>
+</div> -->

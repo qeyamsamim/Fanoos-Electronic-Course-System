@@ -1,1 +1,23 @@
-<p>Grades Coming Soon!</p>
+<h5 class="pt-2 pb-3 text-center">Your Grades</h5>
+<table class="table">
+  <thead class="primary-cl">
+    <tr>
+      <th scope="col">No</th>
+      <th scope="col">Class</th>
+      <th scope="col">Exam</th>
+      <th scope="col">Grade</th>
+      <th scope="col">Date</th>
+      <th scope="col">Remarks</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of grades; let i = index;">
+      <th scope="row"> {{ item.number }} </th>
+      <td> {{ item.class }} </td>
+      <td> {{ item.exam }} </td>
+      <td> {{ item.grade }} </td>
+      <td> {{ item.date }} </td>
+      <td> {{ item.remark }} </td>
+    </tr>
+  </tbody>
+</table>

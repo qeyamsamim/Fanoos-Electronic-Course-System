@@ -1,1 +1,6 @@
-<p>Certificates Coming Soon!</p>
+<h5 class="pt-2 text-center">Certificates</h5>
+<div class="row text-center">
+  <div class="col-xs-12 col-md-4 py-2 px-2" *ngFor="let item of certificates; let i = index;">
+    <app-class-listing [data]="item"></app-class-listing>
+  </div>
+</div>

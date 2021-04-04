@@ -1,0 +1,9 @@
+.active .bs-stepper-circle {
+  background-color: #51AFEE;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #51AFEE;
+  border-color: #51AFEE;
+}
