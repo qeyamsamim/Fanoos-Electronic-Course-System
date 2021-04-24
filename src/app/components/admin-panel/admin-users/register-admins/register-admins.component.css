@@ -1,0 +1,13 @@
+input.ng-invalid.ng-touched {
+  border: 1px solid red;
+}
+
+form .form-text {
+  color: red;
+}
+
+@media only screen and (min-width: 768px) {
+  .btn-block {
+    margin: auto;
+  }
+}

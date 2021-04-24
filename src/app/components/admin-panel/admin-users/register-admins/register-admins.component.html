@@ -1,0 +1,110 @@
+<div class="text-center pt-4">
+  <h4>Add an Admin</h4>
+</div>
+<div class="alert alert-danger mt-3 px-4" *ngIf="error">
+  <p>{{ error }}</p>
+</div>
+<form class="pt-3 pt-md-4" [formGroup]="adminRegister" (ngSubmit)="onSubmit()">
+  <div class="form-row pb-3">
+    <div class="col">
+      <input
+      class="form-control"
+      type="text"
+      id="firstName"
+      formControlName="firstName"
+      placeholder="First Name">
+      <small
+        *ngIf="!adminRegister.get('firstName').valid && adminRegister.get('firstName').touched"
+        class="form-text">
+        <span *ngIf="adminRegister.get('firstName').errors['required']">
+          This Field is Required!
+        </span>
+        <span *ngIf="adminRegister.get('firstName').errors['pattern']">
+          Please Enter a Valid Input!
+        </span>
+      </small>
+    </div>
+    <div class="col">
+      <input
+      class="form-control"
+      type="text"
+      id="lastName"
+      formControlName="lastName"
+      placeholder="Last Name">
+      <small
+        *ngIf="!adminRegister.get('lastName').valid && adminRegister.get('lastName').touched"
+        class="form-text">
+        <span *ngIf="adminRegister.get('lastName').errors['required']">
+          This Field is Required!
+        </span>
+        <span *ngIf="adminRegister.get('lastName').errors['pattern']">
+          Please Enter a Valid Input!
+        </span>
+      </small>
+    </div>
+  </div>
+  <div class="form-row pb-3">
+    <div class="col-6">
+      <input
+        class="form-control"
+        type="email"
+        id="reg-email"
+        formControlName="email"
+        placeholder="Email">
+        <small
+        *ngIf="!adminRegister.get('email').valid && adminRegister.get('email').touched"
+        class="form-text">
+        <span *ngIf="adminRegister.get('email').errors['email']">
+          Please Enter a Valid Email Address!
+        </span>
+        <span *ngIf="adminRegister.get('email').errors['required']">
+          Email is Required!
+        </span>
+      </small>
+    </div>
+  </div>
+  <div class="form-row pb-4">
+    <div class="col">
+      <input
+      class="form-control"
+      type="password"
+      id="reg-password"
+      formControlName="password"
+      placeholder="Password">
+      <small
+        *ngIf="!adminRegister.get('password').valid && adminRegister.get('password').touched"
+        class="form-text">
+        <span *ngIf="adminRegister.get('password').errors['required']">
+          This Field is Required!
+        </span>
+        <span *ngIf="adminRegister.get('password').errors['pattern']">
+          Make sure password is 8 characters and contains upper case, lower case, special characters, and numbers.
+        </span>
+      </small>
+    </div>
+    <div class="col">
+      <input
+      class="form-control mt-3 mt-md-0"
+      type="password"
+      id="confirmPassword"
+      formControlName="confirmPass"
+      placeholder="Confirm Password">
+      <small
+        *ngIf="!adminRegister.get('password').valid && adminRegister.get('password').touched"
+        class="form-text">
+        <span *ngIf="adminRegister.get('password').errors['required']">
+          This Field is Required!
+        </span>
+        <span *ngIf="adminRegister.get('password').errors['pattern']">
+          Passwords do not match!
+        </span>
+      </small>
+    </div>
+  </div>
+  <button
+    class="btn btn-block shadow-sm primary-cl"
+    type="submit">Add Admin</button>
+</form>
+<div *ngIf="isLoading">
+  <app-spinner-box [message]="message"></app-spinner-box>
+</div>

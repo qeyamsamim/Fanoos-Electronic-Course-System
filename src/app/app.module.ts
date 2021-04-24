@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,10 +22,29 @@ import { MyCertificatesComponent } from './components/students-interface/home/my
 import { ProfileComponent } from './components/students-interface/home/profile/profile.component';
 import { ClassListingComponent } from './shared/components/class-listing/class-listing.component';
 import { FilterPipe } from './shared/pipes/filter.pipe';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { QuizesComponent } from './components/students-interface/home/quizes/quizes.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { ClassDetailComponent } from './components/students-interface/home/my-classes/class-detail/class-detail.component';
+import { ClassAccordionComponent } from './components/students-interface/home/my-classes/class-detail/class-accordion/class-accordion.component';
+import { ClassPaymentComponent } from './components/students-interface/home/class-payment/class-payment.component';
+import { TrainingPolicyComponent } from './components/students-interface/home/training-policy/training-policy.component';
+import { PaymentComponent } from './components/students-interface/home/payment/payment.component';
+import { AdminHomeComponent } from './components/admin-panel/admin-home/admin-home.component';
+import { LoadingSpinnerComponent } from './shared/components/loading-spinner/loading-spinner.component';
+import { SpinnerBoxComponent } from './shared/components/spinner-box/spinner-box.component';
+import { LoginFormComponent } from './components/admin-panel/login-form/login-form.component';
+import { AdminPanelComponent } from './components/admin-panel/admin-panel.component';
+import { AdminClasssesComponent } from './components/admin-panel/admin-classses/admin-classses.component';
+import { AdminUsersComponent } from './components/admin-panel/admin-users/admin-users.component';
+import { StudentsListComponent } from './components/admin-panel/students-list/students-list.component';
+import { RegisterAdminsComponent } from './components/admin-panel/admin-users/register-admins/register-admins.component';
+import { AdminsListComponent } from './components/admin-panel/admin-users/admins-list/admins-list.component';
+import { AdminClassListComponent } from './components/admin-panel/admin-classses/admin-class-list/admin-class-list.component';
+import { AdminClassPostComponent } from './components/admin-panel/admin-classses/admin-class-post/admin-class-post.component';
+import { AdminHeaderComponent } from './components/admin-panel/admin-header/admin-header.component';
+import { StudentsInterfaceComponent } from './components/students-interface/students-interface.component';
+import { InstructorsInterfaceComponent } from './components/instructors-interface/instructors-interface.component';
 
 @NgModule({
   declarations: [
@@ -47,12 +67,33 @@ import { ClassDetailComponent } from './components/students-interface/home/my-cl
     FilterPipe,
     QuizesComponent,
     FooterComponent,
-    ClassDetailComponent
+    ClassDetailComponent,
+    ClassAccordionComponent,
+    ClassPaymentComponent,
+    TrainingPolicyComponent,
+    PaymentComponent,
+    AdminHomeComponent,
+    LoadingSpinnerComponent,
+    SpinnerBoxComponent,
+    AdminPanelComponent,
+    LoginFormComponent,
+    AdminClasssesComponent,
+    AdminUsersComponent,
+    StudentsListComponent,
+    RegisterAdminsComponent,
+    AdminsListComponent,
+    AdminClassListComponent,
+    AdminClassPostComponent,
+    AdminHeaderComponent,
+    StudentsInterfaceComponent,
+    InstructorsInterfaceComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule,
+    ReactiveFormsModule,
     CalendarModule.forRoot({
       provide: DateAdapter,
       useFactory: adapterFactory

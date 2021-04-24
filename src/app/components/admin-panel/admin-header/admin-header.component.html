@@ -1,0 +1,30 @@
+<nav class="navbar navbar-expand-lg navbar-dark primary-cl">
+  <span class="navbar-brand">
+    <a target="_blank" href="https://fanoos.af/">
+      <img src="../../../../assets/icons/fanoos.png" height="35" class="d-inline-block align-top" alt="">
+    </a>
+      <span class="ml-3">Fanoos Electronic Course System</span>
+  </span>
+  <button
+    *ngIf="!hasRoute('admin-panel')"
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarTogglerDemo03"
+    aria-controls="navbarTogglerDemo03"
+    aria-expanded="false"
+    aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div *ngIf="!hasRoute('admin-panel')" class="collapse navbar-collapse " id="navbarTogglerDemo03">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0 ">
+      <li
+        class="nav-item"
+        *ngFor="let item of navItem; let i = index"
+        data-toggle="collapse"
+        data-target=".navbar-collapse.show">
+          <a class="nav-link text-white px-4" [routerLink]="item.uRL" routerLinkActive="active"> {{ item.title }} </a>
+      </li>
+    </ul>
+  </div>
+</nav>

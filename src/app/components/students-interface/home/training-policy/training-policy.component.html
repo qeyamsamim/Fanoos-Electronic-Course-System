@@ -1,0 +1,40 @@
+<div class="backdrop" (click)="onClose()"></div>
+<div class="alert-box">
+  <h5 class="text-center pb-3"> {{ title }} </h5>
+  <p> {{ message }} </p>
+  <ul>
+    <li *ngFor="let criteria of criterias; let i = index;"> {{ criteria }} </li>
+  </ul>
+  <h6> {{ missionStatement }} </h6>
+  <p> {{ missionMessage }} </p>
+  <ul>
+    <li *ngFor="let objective of missionStatementObj; let i = index;"> {{ objective }} </li>
+  </ul>
+  <h6>Outline</h6>
+  <ul>
+    <li *ngFor="let outline of outline; let i = index;"> {{ outline }} </li>
+  </ul>
+  <h6>Support</h6>
+  <p> {{ support }} </p>
+  <h6>Improve</h6>
+  <p> {{ improve }} </p>
+  <ul>
+    <li *ngFor="let improve of improveContent; let i = index;"> {{ improve }} </li>
+  </ul>
+  <h6>Core points of policy:</h6>
+  <ul>
+    <li *ngFor="let points of corePoints; let i = index;"> {{ points }} </li>
+  </ul>
+  <h6>Evaluation of training programs</h6>
+  <p> {{ evaluation }} </p>
+  <h6>Selection of employees</h6>
+  <p> {{ employeeSelection }} </p>
+  <h6>Availability of training</h6>
+  <p> {{ availability }} </p>
+  <h6>Location of training session</h6>
+  <p> {{ location }} </p>
+
+  <div class="alert-box-actions text-center">
+    <div class="btn" (click)="onClose()">OK</div>
+  </div>
+</div>

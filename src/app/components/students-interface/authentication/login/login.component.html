@@ -1,26 +1,46 @@
-<form class="pt-3 pt-md-4">
-  <div class="form-group row">
-    <label class="col-md-1 col-form-label d-none d-md-block" for="email"><i class="bi bi-envelope-fill"></i></label>
-    <div class="col-md-11">
-      <input
-        class="form-control"
-        type="text"
-        id="email"
-        placeholder="Email">
-    </div>
+<div class="alert alert-danger px-4 pt-3" *ngIf="error">
+  <p>{{ error }}</p>
+</div>
+<form class="pt-3 pt-md-4" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <input
+      class="form-control"
+      type="text"
+      id="email"
+      formControlName="email"
+      placeholder="Email">
+      <small
+        *ngIf="!loginForm.get('email').valid && loginForm.get('email').touched"
+        class="form-text">
+        <span *ngIf="loginForm.get('email').errors['email']">
+          Please Enter a Valid Email Address!
+        </span>
+        <span *ngIf="loginForm.get('email').errors['required']">
+          Email is Required!
+        </span>
+      </small>
   </div>
-  <div class="form-group row">
-    <label class="col-md-1 col-form-label d-none d-md-block" for="password"><i class="bi bi-key-fill"></i></label>
-    <div class="col-md-11">
-      <input
-        class="form-control"
-        type="password"
-        id="password"
-        placeholder="Password">
-    </div>
+  <div class="form-group">
+    <input
+      class="form-control"
+      type="password"
+      id="password"
+      formControlName="password"
+      placeholder="Password">
+      <small
+        *ngIf="!loginForm.get('password').valid && loginForm.get('password').touched"
+        class="form-text">
+        <span *ngIf="loginForm.get('email').errors['required']">
+          Password is Required!
+        </span>
+      </small>
   </div>
   <div class="text-center pt-3">
-    <button class="btn btn-block shadow-sm primary-cl" type="submit" routerLink="/home">Login</button>
+    <button
+      class="btn btn-block shadow-sm primary-cl"
+      type="submit"
+      [disabled]="loginForm.invalid">Login
+    </button>
   </div>
 </form>
 <div class="row pt-4 justify-content-center text-center">
@@ -28,4 +48,7 @@
     <a>Forget Password</a>
     <p>Don't have an account? <a class="font-weight-bold" routerLink="/register">Register</a></p>
   </div>
+</div>
+<div *ngIf="isLoading">
+  <app-spinner-box [message]="message"></app-spinner-box>
 </div>

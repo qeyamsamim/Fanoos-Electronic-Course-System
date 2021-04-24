@@ -6,7 +6,7 @@
       <span class="ml-3">Fanoos Electronic Course System</span>
   </span>
   <div>
-    <a routerLink="home/profile"><h5 class="d-inline px-5">Student Name</h5></a>
-    <a routerLink="/" class="mr-3"><i class="bi bi-box-arrow-right"></i></a>
+    <a *ngIf="!hasRoute('admin')" routerLink="home/profile"><h5 class="d-inline px-5">Student Name</h5></a>
+    <a *ngIf="hasRoute('home')" routerLink="/" class="mr-3" (click)="onLogout()"><i class="bi bi-box-arrow-right"></i></a>
   </div>
 </nav>

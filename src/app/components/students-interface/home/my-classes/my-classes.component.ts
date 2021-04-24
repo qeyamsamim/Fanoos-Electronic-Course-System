@@ -13,14 +13,14 @@ export class MyClassesComponent implements OnInit {
       name: 'Basic Accounting Class',
       enrollmentDate: 'March 2, 2021',
       btnText: 'View Class',
-      url: 'class-detail',
+      url: '/home/class-detail',
       imgURL: 'https://digitaldefynd.com/wp-content/uploads/2019/01/best-accounting-course-class-certification-training-online.jpg'
     },
     {
       name: 'Advanced QuickBooks',
       enrollmentDate: 'February 20, 2021',
       btnText: 'View Class',
-      url: 'class-detail',
+      url: '/home/class-detail',
       imgURL: 'https://www.hostdocket.com/wp-content/uploads/2019/10/QuickBooks-Desktop-2020-Whats-new-and-improved.png'
     }
   ];

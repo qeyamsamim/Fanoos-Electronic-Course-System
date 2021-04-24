@@ -1,9 +1,10 @@
+<app-header *ngIf="!hasRoute('home') && !hasRoute('admin')"></app-header>
 <app-main-header *ngIf="hasRoute('home')"></app-main-header>
 <div class="container-fluid p-0 overflow-hidden">
   <div class="row">
-    <div class="col">
+    <div class="col-xs-12 col-md-12">
       <router-outlet></router-outlet>
     </div>
   </div>
 </div>
-<app-footer></app-footer>
+<app-footer *ngIf="!hasRoute('admin')"></app-footer>

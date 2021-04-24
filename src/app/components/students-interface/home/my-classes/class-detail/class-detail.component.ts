@@ -7,6 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClassDetailComponent implements OnInit {
 
+  item = [
+    {
+      id: 'headingOne',
+
+    }
+  ]
   constructor() { }
 
   ngOnInit(): void {

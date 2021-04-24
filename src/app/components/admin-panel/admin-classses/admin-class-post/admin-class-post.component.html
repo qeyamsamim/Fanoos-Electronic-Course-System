@@ -1,0 +1,130 @@
+<div class="text-center pt-4">
+  <h4>Add a Class</h4>
+</div>
+<div class="alert alert-danger mt-3 px-4" *ngIf="error">
+  <p>{{ error }}</p>
+</div>
+<form class="pt-3 pt-md-4" [formGroup]="classPost" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <input
+    class="form-control"
+    type="text"
+    id="className"
+    formControlName="className"
+    placeholder="Class Name">
+    <small
+      *ngIf="!classPost.get('className').valid && classPost.get('className').touched"
+      class="form-text">
+      <span *ngIf="classPost.get('className').errors['required']">
+        Class Name is Required!
+      </span>
+      <span *ngIf="classPost.get('className').errors['pattern']">
+        Please Enter a Valid Input!
+      </span>
+    </small>
+  </div>
+  <div class="form-group">
+    <input
+      class="form-control"
+      type="text"
+      id="instructor"
+      formControlName="instructor"
+      placeholder="Instructor Name">
+      <small
+        *ngIf="!classPost.get('instructor').valid && classPost.get('instructor').touched"
+        class="form-text">
+        <span *ngIf="classPost.get('instructor').errors['required']">
+          Instructor Name is Required!
+        </span>
+        <span *ngIf="classPost.get('instructor').errors['pattern']">
+          Please Enter a Valid Input!
+        </span>
+      </small>
+  </div>
+  <div class="form-group">
+    <input
+      class="form-control"
+      type="text"
+      id="fee"
+      formControlName="fee"
+      placeholder="Class Fee">
+      <small
+        *ngIf="!classPost.get('fee').valid && classPost.get('fee').touched"
+        class="form-text">
+        <span *ngIf="classPost.get('fee').errors['required']">
+          Class Fee is Required!
+        </span>
+        <span *ngIf="classPost.get('fee').errors['pattern']">
+          Please Enter a Valid Input!
+        </span>
+      </small>
+  </div>
+  <div formArrayName="topics">
+    <div class="form-row">
+      <div class="col-md-4">
+        <button
+          class="btn primary-cl"
+          type="button"
+          (click)="onAddTopic()">
+          Add Topic
+        </button>
+      </div>
+      <div class="col-md-8">
+        <div
+          class="form-group"
+          *ngFor="let topic of classPost.get('topics')['controls']; let i = index;">
+          <input
+            type="input"
+            class="form-control"
+            id="topic"
+            [formControlName]="i"
+            placeholder="Topics">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="form-row pb-3">
+    <div class="col-6">
+      <input
+        class="form-control"
+        type="date"
+        id="startDate"
+        formControlName="startDate">
+        <small
+        *ngIf="!classPost.get('startDate').valid && classPost.get('startDate').touched"
+        class="form-text">
+        <span *ngIf="classPost.get('startDate').errors['email']">
+          Please Enter a Valid Date!
+        </span>
+        <span *ngIf="classPost.get('startDate').errors['required']">
+          Start Date is Required!
+        </span>
+      </small>
+    </div>
+  </div>
+  <div class="form-group">
+    <textarea
+    class="form-control"
+    type="text"
+    id="description"
+    formControlName="description"
+    placeholder="Class Description"
+    rows="5"></textarea>
+    <small
+      *ngIf="!classPost.get('description').valid && classPost.get('description').touched"
+      class="form-text">
+      <span *ngIf="classPost.get('description').errors['required']">
+        Class Description is Required!
+      </span>
+      <span *ngIf="classPost.get('description').errors['pattern']">
+        Make sure password is 8 characters and contains upper case, lower case, special characters, and numbers.
+      </span>
+    </small>
+  </div>
+  <button
+    class="btn btn-block shadow-sm primary-cl"
+    type="submit">Add Class</button>
+</form>
+<div *ngIf="isLoading">
+  <app-spinner-box [message]="message"></app-spinner-box>
+</div>
