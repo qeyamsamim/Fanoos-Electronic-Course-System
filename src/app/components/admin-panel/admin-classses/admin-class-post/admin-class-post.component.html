@@ -18,9 +18,6 @@
       <span *ngIf="classPost.get('className').errors['required']">
         Class Name is Required!
       </span>
-      <span *ngIf="classPost.get('className').errors['pattern']">
-        Please Enter a Valid Input!
-      </span>
     </small>
   </div>
   <div class="form-group">
@@ -35,9 +32,6 @@
         class="form-text">
         <span *ngIf="classPost.get('instructor').errors['required']">
           Instructor Name is Required!
-        </span>
-        <span *ngIf="classPost.get('instructor').errors['pattern']">
-          Please Enter a Valid Input!
         </span>
       </small>
   </div>
@@ -54,9 +48,6 @@
         <span *ngIf="classPost.get('fee').errors['required']">
           Class Fee is Required!
         </span>
-        <span *ngIf="classPost.get('fee').errors['pattern']">
-          Please Enter a Valid Input!
-        </span>
       </small>
   </div>
   <div formArrayName="topics">
@@ -70,15 +61,21 @@
         </button>
       </div>
       <div class="col-md-8">
-        <div
-          class="form-group"
-          *ngFor="let topic of classPost.get('topics')['controls']; let i = index;">
-          <input
-            type="input"
-            class="form-control"
-            id="topic"
-            [formControlName]="i"
-            placeholder="Topics">
+        <div class="row pb-3" *ngFor="let topic of classPost.get('topics')['controls']; let i = index;">
+          <div class="col-md-10">
+            <input
+              type="input"
+              class="form-control"
+              id="topic"
+              [formControlName]="i"
+              placeholder="Topics">
+          </div>
+          <div  *ngIf="i != 0" class="col-md-2">
+            <button
+              type="button"
+              class="btn primary-cl"
+              (click)="onRemoveTopics(i)">X</button>
+          </div>
         </div>
       </div>
     </div>
@@ -93,11 +90,72 @@
         <small
         *ngIf="!classPost.get('startDate').valid && classPost.get('startDate').touched"
         class="form-text">
-        <span *ngIf="classPost.get('startDate').errors['email']">
-          Please Enter a Valid Date!
-        </span>
         <span *ngIf="classPost.get('startDate').errors['required']">
           Start Date is Required!
+        </span>
+      </small>
+    </div>
+  </div>
+  <div formArrayName="schedule">
+    <div class="form-row">
+      <div class="col-md-4">
+        <button
+          class="btn primary-cl"
+          type="button"
+          (click)="onAddSchedule()">
+          Add Schedule
+        </button>
+      </div>
+      <div class="col-md-8">
+        <div
+          class="row pb-3"
+          *ngFor="let topic of classPost.get('schedule')['controls']; let i = index;">
+          <div class="col-md-10">
+            <input
+              type="input"
+              class="form-control"
+              id="schedule"
+              [formControlName]="i"
+              placeholder="Schedule">
+          </div>
+          <div *ngIf="i != 0" class="col-md-2">
+            <button
+              type="button"
+              class="btn primary-cl"
+              (click)="onRemoveSchedule(i)">X</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="form-row pb-3">
+    <div class="col-6">
+      <input
+        class="form-control"
+        type="text"
+        id="startTime"
+        formControlName="startTime"
+        placeholder="Start Time">
+        <small
+        *ngIf="!classPost.get('startTime').valid && classPost.get('startTime').touched"
+        class="form-text">
+        <span *ngIf="classPost.get('startTime').errors['required']">
+          Start Time is Required!
+        </span>
+      </small>
+    </div>
+    <div class="col-6">
+      <input
+        class="form-control"
+        type="text"
+        id="endTime"
+        formControlName="endTime"
+        placeholder="End Time">
+        <small
+        *ngIf="!classPost.get('endTime').valid && classPost.get('endTime').touched"
+        class="form-text">
+        <span *ngIf="classPost.get('endTime').errors['required']">
+          End Time is Required!
         </span>
       </small>
     </div>
@@ -116,10 +174,32 @@
       <span *ngIf="classPost.get('description').errors['required']">
         Class Description is Required!
       </span>
-      <span *ngIf="classPost.get('description').errors['pattern']">
-        Make sure password is 8 characters and contains upper case, lower case, special characters, and numbers.
-      </span>
     </small>
+  </div>
+  <div>
+    <div class="row">
+      <div class="col-3">
+        <button
+          class="btn primary-cl"
+          type="button"
+          (click)="imagePicker.click()">
+          Pick Image
+        </button>
+        <input
+          type="file"
+          #imagePicker
+          (change)="onImagePicked($event)">
+      </div>
+      <div class="col-9">
+        <div class="row px-3 pb-3" *ngIf="imagePreview !== '' && imagePreview && classPost.get('image').valid">
+          <div class="col-6 col-md-4">
+            <div class="image-preview">
+              <img [src]="imagePreview">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
   <button
     class="btn btn-block shadow-sm primary-cl"

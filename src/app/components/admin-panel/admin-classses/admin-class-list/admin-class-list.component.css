@@ -3,3 +3,11 @@ img {
   width: 200px;
   object-fit: cover;
 }
+
+p {
+  font-size: 15px;
+}
+
+i {
+  color: rgb(255, 166, 49);
+}

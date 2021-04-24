@@ -13,18 +13,28 @@
       [(ngModel)]="search">
   </div>
 </div>
+<div *ngIf="isLoading" class="text-center">
+  <app-loading-spinner></app-loading-spinner>
+</div>
 <div class="row">
-  <div class="col-12">
-    <div class="card flex-sm-row shadow-sm">
+  <div class="col-12" *ngFor="let class of classes; let i = index;">
+    <div class="card flex-sm-row shadow-sm mb-2">
       <!-- <div class="image-preview"> -->
-        <img class="card-img-top flex-auto" src="../../../../../assets/images/class1.jpg">
+        <img class="card-img-top flex-auto" [src]="class.imageURL">
       <!-- </div> -->
-      <div class="card-body align-items-start">
-        <h5 class="pb-2 d-inline-block">Basics of Accounting</h5>
-        <small class="mb-2 text-muted float-right"> April 11, 2021 </small>
-        <p class="mb-0"><span class="font-weight-bold">Instructor: </span>Mohammad Aman Ahmadi</p>
-        <p class="mb-0"><span class="font-weight-bold">Fee: </span>2,500 AFN</p>
-        <p><span class="font-weight-bold">Starting Date: </span>May 16, 2021</p>
+      <div class="card-body align-items-start py-3">
+        <h5 class="pb-2 d-inline-block"> {{ class.className }} </h5>
+        <small class="mb-2 text-muted float-right"> {{ class.dateAdded | date:'mediumDate' }} </small>
+        <p class="mb-1"><span class="font-weight-bold">Instructor: </span> {{ class.instructor }} </p>
+        <p class="mb-1"><span class="font-weight-bold">Fee: </span> {{ class.fee }} AFN</p>
+        <p class="mb-1"><i class="bi bi-calendar-week-fill"></i> {{ class.startDate | date:'mediumDate' }} </p>
+        <p class="mb-1"><i class="bi bi-clock-fill"></i> {{ class.startTime}} - {{ class.endTime }} </p>
+        <p class="mb-0">
+          <span *ngFor="let schedule of class.schedule; let y = index;">
+            {{ schedule }}
+            <span *ngIf="y != class.schedule.length - 1">,</span>
+        </span>
+        </p>
       </div>
     </div>
   </div>
