@@ -1,3 +1,11 @@
 a {
   color: #0170b9;
 }
+
+input.ng-invalid.ng-touched {
+  border: 1px solid red;
+}
+
+form .form-text {
+  color: red;
+}

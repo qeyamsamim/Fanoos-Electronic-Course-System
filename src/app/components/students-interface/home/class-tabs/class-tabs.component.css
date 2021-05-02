@@ -1,0 +1,15 @@
+a {
+  text-decoration: none;
+  color: #0170b9;
+}
+li {
+  width: 20%;
+}
+
+li.active {
+  background: #0170b9;
+}
+
+li.active a {
+  color: white;
+}

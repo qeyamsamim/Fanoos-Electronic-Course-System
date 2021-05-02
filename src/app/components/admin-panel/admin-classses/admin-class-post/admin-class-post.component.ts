@@ -28,6 +28,7 @@ export class AdminClassPostComponent implements OnInit {
       'className': new FormControl(null, Validators.required),
       'instructor': new FormControl(null, Validators.required),
       'fee': new FormControl(null, Validators.required),
+      'discount': new FormControl(null),
       'topics': new FormArray([new FormControl(null, Validators.required)]),
       'startDate': new FormControl(null, Validators.required),
       'schedule': new FormArray([new FormControl(null, Validators.required)]),
@@ -74,6 +75,7 @@ export class AdminClassPostComponent implements OnInit {
             value.description,
             imageURL,
             new Date(),
+            value.discount
           );
           this.classService.addClasses(newClass).subscribe(() => {
             this.classPost.reset();

@@ -38,6 +38,7 @@ export class ClassService {
           resData.description,
           resData.imageURL,
           resData.dateAdded,
+          resData.discount,
           resData.id
         );
       })

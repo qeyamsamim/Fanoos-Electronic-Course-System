@@ -9,8 +9,11 @@
       [(ngModel)]="search">
   </div>
 </div>
-<div class="row text-center">
-  <div class="col-xs-12 col-md-4 py-2 px-2" *ngFor="let item of classNames | filter:search:'name'; let i = index;">
-    <app-class-listing [data]="item"></app-class-listing>
+<div *ngIf="isLoading" class="text-center">
+  <app-loading-spinner></app-loading-spinner>
+</div>
+<div class="row mb-4">
+  <div class="col-xs-12 col-md-4 py-2 px-2" *ngFor="let class of classes | filter:search:'className'; let i = index;">
+    <app-class-listing [data]="class"></app-class-listing>
   </div>
 </div>

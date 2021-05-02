@@ -1,0 +1,22 @@
+.primary-cl {
+  height: 60px;
+  color: rgb(255, 200, 36);
+}
+
+.carousel {
+  height: 210px;
+}
+
+.carousel-item img {
+  object-fit: cover;
+  height: 200px;
+  width: 100%;
+}
+
+.carousel-indicators li {
+  height: 5px;
+}
+
+.carousel-indicators li.active {
+  background-color: rgb(255, 166, 49);
+}

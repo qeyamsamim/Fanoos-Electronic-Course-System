@@ -26,7 +26,7 @@
       type="text"
       id="instructor"
       formControlName="instructor"
-      placeholder="Instructor Name">
+      placeholder="Trainer Name">
       <small
         *ngIf="!classPost.get('instructor').valid && classPost.get('instructor').touched"
         class="form-text">
@@ -35,8 +35,9 @@
         </span>
       </small>
   </div>
-  <div class="form-group">
-    <input
+  <div class="form-row mb-3">
+    <div class="col-6">
+      <input
       class="form-control"
       type="text"
       id="fee"
@@ -49,6 +50,15 @@
           Class Fee is Required!
         </span>
       </small>
+    </div>
+    <div class="col-6">
+      <input
+      class="form-control"
+      type="text"
+      id="discount"
+      formControlName="discount"
+      placeholder="Discount">
+    </div>
   </div>
   <div formArrayName="topics">
     <div class="form-row">

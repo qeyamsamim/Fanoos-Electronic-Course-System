@@ -46,13 +46,12 @@ export class RegisterComponent implements OnInit {
     this.isLoading = true;
 
     this.authService.singUp(value.email, value.password).subscribe(responseData => {
-      console.log(responseData);
       const newStudent = new Student(
         value.firstName,
         value.lastName,
+        value.gender,
         value.email,
-        value.contactNumber,
-        value.gender
+        value.contactNumber
       );
       this.studentsService.addStudents(newStudent).subscribe(() => {
         this.router.navigate(['/home']);

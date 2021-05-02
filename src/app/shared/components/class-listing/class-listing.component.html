@@ -1,10 +1,17 @@
 <div class="card shadow-sm">
-  <img class="card-img-top" [src]="data.imgURL">
+  <div class="card-img-top">
+    <span *ngIf="data.discount" class="badge badge-pill badge-primary">- {{ data.discount }}%</span>
+    <img class="card-img-top" [src]="data.imageURL">
+  </div>
   <div class="card-body py-2">
-    <h6 class="mb-1"> {{ data.name }} </h6>
+    <h6 class="mb-1"> {{ data.className | shorten:35 }} </h6>
     <p *ngIf="data.enrollmentDate" class="mb-2"><span class="font-weight-bold">Enrolled on: </span> {{ data.enrollmentDate }} </p>
     <p *ngIf="data.issueDate" class="mb-2"><span class="font-weight-bold">Issued on: </span> {{ data.issueDate }} </p>
-    <p *ngIf="data.price"  class="mb-2"><span class="font-weight-bold">Price:</span> {{ data.price }} </p>
-    <button class="btn primary-cl" [routerLink]="data.url"> {{ data.btnText }} </button>
+    <p *ngIf="data.fee"  class="mb-0"><span class="font-weight-bold">Fee:</span> {{ data.fee }} AFN</p>
+    <p class="mb-0"><i class="bi bi-calendar-week-fill"></i> {{ data.startDate | date:'mediumDate' }} </p>
+    <p class="mb-1"><i class="bi bi-clock-fill"></i> {{ data.startTime}} - {{ data.endTime }} </p>
+    <div class="text-center">
+      <button class="btn primary-cl shadow-sm" routerLink="/home/class-payment">Register Now</button>
+    </div>
   </div>
 </div>

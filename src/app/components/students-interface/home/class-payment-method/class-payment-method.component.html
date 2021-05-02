@@ -1,0 +1,26 @@
+<div class="row p-3 pb-5">
+    <div class="col-12">
+    <h6>Payment Method</h6>
+    <p>There are two options available for payment. Please choose any of them which is convenient for you.</p>
+    <h6 class="mb-1">Cash:</h6>
+    <p>You can pay cash for this course and enroll manually to the class. To complete the registration and payment
+      procedure, please visit our office or give us a call at 0777123456.</p>
+    <h6 class="mb-1">Bank Payment:</h6>
+    <p>You can also pay online to enroll this class. There are different methods available for online payment,
+      you can choose any of them which works for you. If you face any problem during the payment, please do not hesitate to
+      contact us.</p>
+    <form [formGroup]="trainingform" (ngSubmit)="onSubmit()">
+      <div class="form-check text-center my-2">
+        <input class="form-check-input" type="checkbox" formControlName="agree" value="" id="defaultCheck1">
+        <label class="form-check-label" for="defaultCheck1">
+          I have read the <span class="rounded p-2" role="button" (click)="onClick()">Training Policy</span>.
+        </label>
+      </div>
+      <div class="text-center pt-2">
+        <button class="btn primary-cl" type="submit" (click)="onPayment()" [disabled]="!trainingform.valid">Proceed to Payment</button>
+      </div>
+    </form>
+    <app-payment *ngIf="payment"></app-payment>
+  </div>
+</div>
+<app-training-policy [message]="message" *ngIf="isClicked" (close)="onHandleClose()"></app-training-policy>

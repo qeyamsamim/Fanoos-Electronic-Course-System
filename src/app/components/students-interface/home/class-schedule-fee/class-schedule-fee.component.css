@@ -1,0 +1,32 @@
+.card {
+  border: solid 2px #0170b9;
+}
+
+p {
+  margin-bottom: 0px;
+}
+
+p i {
+  color: rgb(204, 5, 5);
+}
+
+p i.bi-table {
+  color: #0170b9;
+}
+
+p span i, h6 i {
+  color: rgb(255, 166, 49);
+}
+
+.training-fee {
+  background-color: rgb(204, 5, 5);
+  color: white;
+}
+
+.btn {
+  color: white;
+}
+
+.btn:hover {
+  color: rgb(255, 166, 49);
+}

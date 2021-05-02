@@ -1,6 +1,6 @@
 <h4 class="text-center pt-4 pb-2">Students List</h4>
 <div class="row">
-  <div class="col-md-10 offset-md-1">
+  <div class="col-md-10 offset-md-1" id="table">
     <div class="row pt-3 pb-4">
       <div class="col-12">
         <input
@@ -18,16 +18,37 @@
       <thead class="primary-cl">
         <tr>
           <th scope="col">No</th>
-          <th scope="col">First Name</th>
-          <th scope="col">Last Name</th>
+          <th
+            scope="col"
+            [class.active]="order === 'firstName'"
+            (click)="onSort('firstName')">
+            First Name
+            <span [hidden]="reverse">▼</span>
+            <span [hidden]="!reverse">▲</span>
+          </th>
+          <th
+            scope="col"
+            [class.active]="order === 'lastName'"
+            (click)="onSort('lastName')">
+            Last Name
+            <span [hidden]="reverse">▼</span>
+            <span [hidden]="!reverse">▲</span>
+          </th>
           <th scope="col">Email</th>
           <th scope="col">Contact Number</th>
-          <th scope="col">Gender</th>
+          <th
+            scope="col"
+            [class.active]="order === 'gender'"
+            (click)="onSort('gender')">
+            Gender
+            <span [hidden]="reverse">▼</span>
+            <span [hidden]="!reverse">▲</span>
+          </th>
           <th scope="col"></th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let student of students; let i = index;">
+        <tr *ngFor="let student of students | filter:search:'email' | orderBy: order:reverse:'case-insensitive'; let i = index;">
           <th scope="row"> {{ i + 1 }} </th>
           <td> {{ student.firstName }} </td>
           <td> {{ student.lastName }} </td>
@@ -40,5 +61,10 @@
         </tr>
       </tbody>
     </table>
+    <button
+      *ngIf="!isLoading"
+      type="button"
+      class="btn primary-cl"
+      (click)="SavePDF()">Download</button>
   </div>
 </div>

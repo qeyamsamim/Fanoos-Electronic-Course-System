@@ -3,6 +3,7 @@
 }
 
 footer {
+  bottom: 0px;
   background: #0170b9;
   color: white;
 }
@@ -27,6 +28,10 @@ footer a:hover {
 .footer-middle {
   padding-top: 2em;
   color: white;
+}
+
+i {
+  color: rgb(255, 166, 49);
 }
 
 

@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Student } from 'src/app/models/student.model';
 
 import { AuthService } from 'src/app/services/auth.service';
+import { StudentsService } from 'src/app/services/students.service';
 
 @Component({
   selector: 'app-login',
@@ -15,6 +17,7 @@ export class LoginComponent implements OnInit {
   isLoading: boolean = false;
   message: string = 'Logging in'
   error: string = '';
+  student: Student;
 
   constructor(
     private authService: AuthService,
@@ -37,7 +40,6 @@ export class LoginComponent implements OnInit {
     this.isLoading = true;
 
     this.authService.login(value.email, value.password).subscribe(responseData => {
-      console.log(responseData);
       this.isLoading = false;
       this.router.navigate(['/home']);
       this.loginForm.reset();

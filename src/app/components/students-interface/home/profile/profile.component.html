@@ -1,36 +1,97 @@
-<h4 class="pb-3">Student Name</h4>
-<form>
-  <div class="form-row pb-3">
+<div *ngIf="isLoading" class="text-center">
+  <app-loading-spinner></app-loading-spinner>
+</div>
+<h4 *ngIf="!isLoading" class="py-3"> {{ student.firstName }} {{ student.lastName }} </h4>
+<form *ngIf="!isLoading" class="py-3" [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+  <div class="form-row">
     <div class="col-5">
-      <input
-        type="text"
-        id="firstName"
-        name="firstName"
-        value="Student's First Name"
-        class="form-control">
+      <div class="form-group">
+        <input
+          type="text"
+          id="firstName"
+          formControlName="firstName"
+          class="form-control">
+      </div>
+      <div class="form-group">
+        <input
+          type="text"
+          id="lastName"
+          formControlName="lastName"
+          class="form-control">
+      </div>
+      <div class="form-group">
+        <fieldset disabled>
+          <input type="text" class="form-control" formControlName="gender">
+        </fieldset>
+      </div>
     </div>
     <div class="col-5">
-      <input
-        type="text"
-        id="lastName"
-        name="lastName"
-        value="Student's Last Name"
-        class="form-control">
+      <div>
+        <div class="image-preview float-right">
+          <div *ngIf="!student.imageURL || imagePreview">
+            <img *ngIf="!imagePreview" src="data:image/jpeg;base64,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">
+            <img *ngIf="imagePreview" [src]="imagePreview">
+          </div>
+          <img *ngIf="student.imageURL && !imagePreview" [src]="student.imageURL">
+          <div class="middle">
+            <button class="btn" (click)="imagePicker.click()" type="button"><i class="bi bi-folder-fill"></i></button>
+          </div>
+        </div>
+        <input
+          type="file"
+          #imagePicker
+          (change)="onImagePicked($event)">
+      </div>
     </div>
   </div>
   <div class="form-row pb-3">
     <div class="col-5">
       <fieldset disabled>
-        <input type="text" class="form-control" value="studentone@gmail.com">
+        <input type="text" class="form-control" formControlName="email">
       </fieldset>
     </div>
     <div class="col-5">
       <input
+      type="text"
+      id="contactNumber"
+      formControlName="contactNumber"
+      class="form-control">
+    </div>
+  </div>
+  <div class="form-row pb-3">
+    <div class="col-5">
+      <input
         type="text"
-        id="contactNumber"
-        name="contactNumber"
-        value="0777123456"
-        class="form-control">
+        id="occupation"
+        formControlName="occupation"
+        class="form-control"
+        placeholder="Occupation...">
+    </div>
+    <div class="col-5">
+      <input
+        type="text"
+        id="company"
+        formControlName="company"
+        class="form-control"
+        placeholder="Company...">
+    </div>
+  </div>
+  <div class="form-row pb-3">
+    <div class="col-5">
+      <input
+        type="text"
+        id="skype"
+        formControlName="skype"
+        class="form-control"
+        placeholder="Skype ID...">
+    </div>
+    <div class="col-5">
+      <input
+        type="text"
+        id="facebook"
+        formControlName="facebook"
+        class="form-control"
+        placeholder="Facebook Link...">
     </div>
   </div>
   <div class="form-row">
@@ -51,5 +112,8 @@
         class="form-control">
     </div>
   </div>
-  <button class="btn primary-cl my-4">Update Profile</button>
+  <button class="btn primary-cl my-4" type="submit">Update Profile</button>
 </form>
+<div *ngIf="isUpdating">
+  <app-spinner-box [message]="message"></app-spinner-box>
+</div>

@@ -20,6 +20,10 @@ import { StudentsListComponent } from './components/admin-panel/students-list/st
 import { AdminUsersComponent } from './components/admin-panel/admin-users/admin-users.component';
 import { StudentsInterfaceComponent } from './components/students-interface/students-interface.component';
 import { InstructorsInterfaceComponent } from './components/instructors-interface/instructors-interface.component';
+import { ClassOverviewComponent } from './components/students-interface/home/class-overview/class-overview.component';
+import { ClassOutlineComponent } from './components/students-interface/home/class-outline/class-outline.component';
+import { ClassScheduleFeeComponent } from './components/students-interface/home/class-schedule-fee/class-schedule-fee.component';
+import { ClassPaymentMethodComponent } from './components/students-interface/home/class-payment-method/class-payment-method.component';
 
 
 const routes: Routes = [
@@ -44,9 +48,14 @@ const routes: Routes = [
       { path: 'quizes', component: QuizesComponent },
       { path: 'grades', component: GradesComponent },
       { path: 'my-certificates', component: MyCertificatesComponent },
-      { path: 'profile', component: ProfileComponent },
+      { path: 'profile/:studentId', component: ProfileComponent },
       { path: 'class-detail', component: ClassDetailComponent },
-      { path: 'class-payment', component: ClassPaymentComponent }
+      { path: 'class-payment', component: ClassPaymentComponent, children: [
+        { path: '', component: ClassOverviewComponent },
+        { path: 'outline', component: ClassOutlineComponent },
+        { path: 'schedule-fee', component: ClassScheduleFeeComponent },
+        { path: 'payment', component: ClassPaymentMethodComponent }
+      ] }
     ]
   },
   {

@@ -5,6 +5,7 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { environment } from '../environments/environment';
+import { OrderModule } from 'ngx-order-pipe';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -49,6 +50,13 @@ import { AdminClassPostComponent } from './components/admin-panel/admin-classses
 import { AdminHeaderComponent } from './components/admin-panel/admin-header/admin-header.component';
 import { StudentsInterfaceComponent } from './components/students-interface/students-interface.component';
 import { InstructorsInterfaceComponent } from './components/instructors-interface/instructors-interface.component';
+import { TopDiscountsComponent } from './components/students-interface/home/top-discounts/top-discounts.component';
+import { ClassTabsComponent } from './components/students-interface/home/class-tabs/class-tabs.component';
+import { ClassOverviewComponent } from './components/students-interface/home/class-overview/class-overview.component';
+import { ClassOutlineComponent } from './components/students-interface/home/class-outline/class-outline.component';
+import { ClassScheduleFeeComponent } from './components/students-interface/home/class-schedule-fee/class-schedule-fee.component';
+import { ClassPaymentMethodComponent } from './components/students-interface/home/class-payment-method/class-payment-method.component';
+import { ShortenPipe } from './shared/pipes/shorten.pipe';
 
 @NgModule({
   declarations: [
@@ -91,6 +99,13 @@ import { InstructorsInterfaceComponent } from './components/instructors-interfac
     AdminHeaderComponent,
     StudentsInterfaceComponent,
     InstructorsInterfaceComponent,
+    TopDiscountsComponent,
+    ClassTabsComponent,
+    ClassOverviewComponent,
+    ClassOutlineComponent,
+    ClassScheduleFeeComponent,
+    ClassPaymentMethodComponent,
+    ShortenPipe,
   ],
   imports: [
     BrowserModule,
@@ -98,6 +113,7 @@ import { InstructorsInterfaceComponent } from './components/instructors-interfac
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
+    OrderModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireStorageModule,
     AngularFireDatabaseModule,

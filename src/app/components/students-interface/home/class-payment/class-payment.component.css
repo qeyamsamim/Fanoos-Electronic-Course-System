@@ -1,23 +1,14 @@
-.col1 {
-  background: #d5eeff;
-}
-
-.col2 {
-  background: #c1e5ff;
-}
-
-.col3 {
-  background: #b1e0ff;
-}
-
-.col4 {
-  background: #9fd9ff;
-}
-
-ul {
-  text-decoration: none;
-}
-
 .primary-cl {
   color: white;
+}
+
+.card {
+  background-color: #ffd6a1;
+  color: black;
+}
+
+img {
+  height: 250px;
+  width: 250px;
+  object-fit: cover;
 }

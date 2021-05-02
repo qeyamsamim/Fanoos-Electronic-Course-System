@@ -11,6 +11,7 @@ export class OurClass {
     public description: string,
     public imageURL: string,
     public dateAdded: Date,
+    public discount?: number,
     public id?: string
   ) {}
 }
