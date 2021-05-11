@@ -1,0 +1,63 @@
+.row-cl {
+  background: #f3f3f3;
+}
+
+.col-cl {
+  background: white;
+}
+
+.color {
+  background: rgb(49, 138, 255);
+  color: white;
+}
+
+button:hover {
+  background: white;
+}
+
+button.primary-cl:hover {
+  color: #0170b9;
+  border-color: #0170b9;
+}
+
+button.secondary-cl:hover {
+  color: rgb(204, 5, 5);
+  border-color: rgb(204, 5, 5);
+}
+
+button.color:hover {
+  color: rgb(49, 138, 255);
+  border-color: rgb(49, 138, 255);
+}
+
+div.upcoming {
+  background: rgb(204, 5, 5);
+  color: white;
+}
+
+div.icon-wrapper {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: white;
+}
+
+div.icon-wrapper svg {
+  width: 70px;
+  height: 70px;
+  padding-top: 13px;
+}
+
+div.archived {
+  background: rgb(0, 177, 0);
+  color: white;
+}
+
+div.language {
+  background: rgb(252, 151, 0);
+  color: white;
+}
+
+a h6 {
+  color: white;
+}

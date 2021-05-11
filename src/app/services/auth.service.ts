@@ -106,7 +106,7 @@ export class AuthService {
   // This function logs the admin out of the web application.
   logout() {
     this.student.next(null!);
-    this.router.navigate(['/']);
+    this.router.navigate(['/authentication']);
     localStorage.removeItem('adminData');
     if (this.tokenExpirationTimer) {
       clearTimeout(this.tokenExpirationTimer);

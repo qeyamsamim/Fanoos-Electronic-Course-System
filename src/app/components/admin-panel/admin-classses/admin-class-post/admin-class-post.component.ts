@@ -17,6 +17,7 @@ export class AdminClassPostComponent implements OnInit {
   error: string = '';
   image: File;
   imagePreview: string;
+  instrcutors: string[] = ['Mohammad Aman Ahmadi', 'Trainer A', 'Trainer B', 'Add a Trainer'];
 
   constructor(
     private classService: ClassService,
@@ -26,7 +27,7 @@ export class AdminClassPostComponent implements OnInit {
   ngOnInit(): void {
     this.classPost = new FormGroup({
       'className': new FormControl(null, Validators.required),
-      'instructor': new FormControl(null, Validators.required),
+      'instructor': new FormControl('Mohammad Aman Ahmadi', Validators.required),
       'fee': new FormControl(null, Validators.required),
       'discount': new FormControl(null),
       'topics': new FormArray([new FormControl(null, Validators.required)]),

@@ -1,0 +1,36 @@
+<div class="row pt-4">
+  <div class="col-12">
+    <h3 class="text-center">Testimonials</h3>
+  </div>
+</div>
+<div class="row py-4">
+  <div class="col-md-6 offset-md-3">
+    <div id="demo" class="carousel slide" data-ride="carousel">
+
+      <ul class="carousel-indicators">
+        <li data-target="#demo" data-slide-to="0" class="active"></li>
+        <li data-target="#demo" data-slide-to="1"></li>
+        <li data-target="#demo" data-slide-to="2"></li>
+        <li data-target="#demo" data-slide-to="3"></li>
+      </ul>
+
+      <div class="carousel-inner">
+        <div class="carousel-item" *ngFor="let items of carousel; let i = index; let isFirst = first" [ngClass]="{active : isFirst}">
+          <div class="card flex-sm-row mb-2">
+            <img class="card-img-top flex-auto" [src]="items.imageURL">
+            <div class="card-body align-items-start py-3">
+              <h5 class="pb-2 d-inline-block"> {{ items.name }} </h5>
+              <small class="mb-2 text-muted float-right"> {{ items.date | date:'mediumDate' }} </small>
+              <p class="mb-1">
+                Hello it is really good. The classes very useful. I learned so many new things. They really helped me build my
+                career in the field of accounting. I strongly recommend this training for everyone. Hello it is really good. The classes
+                very useful. I learned so many new things. They really helped me build my career in the field of accounting. I strongly
+                recommend this training for everyone.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

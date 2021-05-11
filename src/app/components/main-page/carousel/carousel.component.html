@@ -1,0 +1,26 @@
+<div id="demo" class="carousel slide carousel-fade mb-5" data-ride="carousel">
+
+  <ul class="carousel-indicators">
+    <li data-target="#demo" data-slide-to="0" class="active"></li>
+    <li data-target="#demo" data-slide-to="1"></li>
+    <li data-target="#demo" data-slide-to="2"></li>
+  </ul>
+
+  <div class="carousel-inner">
+    <div class="carousel-item" *ngFor="let item of carouselItems; let i = index; let isFirst = first" [ngClass]="{active : isFirst}">
+      <img [src]="item.image" [alt]="item.alt">
+      <div class="carousel-caption">
+        <h5 [@carouselTitle]> {{ item.title }} </h5>
+        <p [@carouselText]> {{ item.text }} </p>
+      </div>
+    </div>
+  </div>
+
+  <a class="carousel-control-prev left d-none d-md-block" href="#demo" data-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </a>
+  <a class="carousel-control-next right d-none d-md-block" href="#demo" data-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </a>
+
+</div>

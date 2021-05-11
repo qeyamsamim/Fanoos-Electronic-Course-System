@@ -1,11 +1,14 @@
-<div class="row">
+<div *ngIf="isLoading" class="text-center">
+  <app-loading-spinner></app-loading-spinner>
+</div>
+<div *ngIf="!isLoading" class="row">
   <div class="col-12">
     <div class="row rounded">
       <div class="col-12">
         <div class="card flex-sm-row ">
-          <img class="card-img-top flex-auto" src="https://firebasestorage.googleapis.com/v0/b/fanoos-ecourse-system.appspot.com/o/Classes%2Fdownload%20(1).jpg_1619248272013?alt=media&token=fa5bd07b-000d-49a8-aa36-cb38c992554c" alt="">
+          <img class="card-img-top flex-auto" [src]="currentClass.imageURL" alt="">
           <div class="card-body align-items-start p-3">
-            <h5>Course Name</h5>
+            <h5> {{ currentClass.className }} </h5>
             This is a very short description of the course. This is a very short description of the course. This is a very short description of the
             course. It is another description of this course. It is another description of this course. It is another description of this course.
             text here. If you enroll, pay. Here you can find all the important details about his course. Please go through this description. It is

@@ -21,7 +21,9 @@ i {
 }
 
 .btn:hover {
-  color: rgb(255, 166, 49);
+  background: white;
+  color: #0170b9;
+  border-color: #0170b9;
 }
 
 .badge {

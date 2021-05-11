@@ -20,7 +20,14 @@
       </span>
     </small>
   </div>
-  <div class="form-group">
+  <div class="form-row pb-3">
+    <div class="col-xs-12 col-md-6">
+      <select class="form-control" id="instructor" formControlName="instructor">
+        <option *ngFor="let item of instrcutors; let i = index;" [value]="item"> {{ item }} </option>
+      </select>
+    </div>
+  </div>
+  <!-- <div class="form-group">
     <input
       class="form-control"
       type="text"
@@ -34,7 +41,7 @@
           Instructor Name is Required!
         </span>
       </small>
-  </div>
+  </div> -->
   <div class="form-row mb-3">
     <div class="col-6">
       <input

@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AdminHomeComponent } from './components/admin-panel/admin-home/admin-home.component';
 import { AdminPanelComponent } from './components/admin-panel/admin-panel.component';
-import { AuthenticationComponent } from './components/students-interface/authentication/authentication.component';
 import { LoginComponent } from './components/students-interface/authentication/login/login.component';
 import { RegisterComponent } from './components/students-interface/authentication/register/register.component';
 import { AllClassesComponent } from './components/students-interface/home/all-classes/all-classes.component';
@@ -24,11 +23,26 @@ import { ClassOverviewComponent } from './components/students-interface/home/cla
 import { ClassOutlineComponent } from './components/students-interface/home/class-outline/class-outline.component';
 import { ClassScheduleFeeComponent } from './components/students-interface/home/class-schedule-fee/class-schedule-fee.component';
 import { ClassPaymentMethodComponent } from './components/students-interface/home/class-payment-method/class-payment-method.component';
+import { MainPageComponent } from './components/main-page/main-page.component';
+import { UpcomingTrainingsComponent } from './components/main-page/category/upcoming-trainings/upcoming-trainings.component';
+import { OngoingTrainingsComponent } from './components/main-page/category/ongoing-trainings/ongoing-trainings.component';
+import { ArchivedTrainingsComponent } from './components/main-page/category/archived-trainings/archived-trainings.component';
+import { EnglishTrainingsComponent } from './components/main-page/category/english-trainings/english-trainings.component';
 
 
 const routes: Routes = [
   {
     path: '',
+    component: MainPageComponent,
+    children: [
+      { path: '', component: UpcomingTrainingsComponent },
+      { path: 'ongoing-trainings', component: OngoingTrainingsComponent },
+      { path: 'archived-trainings', component: ArchivedTrainingsComponent },
+      { path: 'english-trainings', component: EnglishTrainingsComponent },
+    ]
+  },
+  {
+    path: 'authentication',
     component: StudentsInterfaceComponent,
     children: [
       { path: '', component: LoginComponent },
@@ -36,21 +50,18 @@ const routes: Routes = [
     ]
   },
   {
-    path: 'home',
+    path: 'classes',
     component: HomeComponent,
     canActivate: [AuthGuard],
     children: [
       { path: '', component: AllClassesComponent },
-      {
-        path: 'my-classes',
-        component: MyClassesComponent
-      },
+      { path: 'my-classes', component: MyClassesComponent },
       { path: 'quizes', component: QuizesComponent },
       { path: 'grades', component: GradesComponent },
       { path: 'my-certificates', component: MyCertificatesComponent },
       { path: 'profile/:studentId', component: ProfileComponent },
       { path: 'class-detail', component: ClassDetailComponent },
-      { path: 'class-payment', component: ClassPaymentComponent, children: [
+      { path: 'class-payment/:classId', component: ClassPaymentComponent, children: [
         { path: '', component: ClassOverviewComponent },
         { path: 'outline', component: ClassOutlineComponent },
         { path: 'schedule-fee', component: ClassScheduleFeeComponent },
@@ -58,19 +69,17 @@ const routes: Routes = [
       ] }
     ]
   },
+  { path: 'admin-panel', component: AdminPanelComponent },
   {
-    path: 'admin-panel', component: AdminPanelComponent
-  },
-  {
-    path: 'admin', component: AdminHomeComponent, children: [
+    path: 'admin',
+    component: AdminHomeComponent,
+    children: [
       { path: '', component: AdminClasssesComponent },
       { path: 'students-list', component: StudentsListComponent },
       { path: 'admin-users', component: AdminUsersComponent }
     ]
   },
-  {
-    path: 'instructors-interface', component: InstructorsInterfaceComponent
-  }
+  { path: 'instructors-interface', component: InstructorsInterfaceComponent }
 ];
 
 @NgModule({
@@ -79,7 +88,7 @@ const routes: Routes = [
       routes,
       {
         relativeLinkResolution: 'legacy',
-        scrollPositionRestoration: 'enabled'
+        //scrollPositionRestoration: 'enabled'
       }
     )
   ],

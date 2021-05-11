@@ -1,5 +1,11 @@
 .primary-cl {
   background: #0170b9;
+  color: white;
+}
+
+.secondary-cl {
+  background: rgb(204, 5, 5);
+  color: white;
 }
 
 a {

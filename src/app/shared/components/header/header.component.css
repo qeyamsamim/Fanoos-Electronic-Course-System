@@ -1,3 +1,19 @@
+.row {
+  margin-right: 0px;
+}
+
 nav.primary-cl {
+  color: #0170b9;
+}
+
+.link, p.color, a i.bi-whatsapp {
+  color: #0170b9;
+}
+
+span.ml-3 {
+  color: black;
+}
+
+ul li a.small, a i {
   color: white;
 }

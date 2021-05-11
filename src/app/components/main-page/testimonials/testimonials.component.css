@@ -1,0 +1,26 @@
+.row, .card {
+  background: #f3f3f3;
+}
+
+.card {
+  border-color: #f3f3f3;
+}
+
+img.card-img-top {
+  height: 300px;
+  width: 300px;
+  object-fit: cover;
+}
+
+.carousel {
+  height: 370px;
+}
+
+.carousel-indicators li {
+  height: 5px;
+  background-color: #004879;
+}
+
+.carousel-indicators li.active {
+  background-color: rgb(204, 5, 5);
+}

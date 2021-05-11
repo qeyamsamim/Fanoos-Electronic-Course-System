@@ -6,7 +6,7 @@
       <span class="ml-3">Fanoos Training Management System</span>
   </span>
   <div>
-    <a *ngIf="!hasRoute('admin') && !isLoading" [routerLink]="['/home', 'profile', student[0].id]"><h5 class="d-inline px-5"> {{ student[0].firstName }}  {{ student[0].lastName }} </h5></a>
-    <a *ngIf="hasRoute('home')" routerLink="/" class="mr-3" (click)="onLogout()"><i class="bi bi-box-arrow-right"></i></a>
+    <a *ngIf="!hasRoute('admin') && !isLoading" [routerLink]="['/classes', 'profile', student[0].id]"><h5 class="d-inline px-5"> {{ student[0].firstName }}  {{ student[0].lastName }} </h5></a>
+    <a *ngIf="hasRoute('classes')" routerLink="/" class="mr-3" (click)="onLogout()"><i class="bi bi-box-arrow-right"></i></a>
   </div>
 </nav>

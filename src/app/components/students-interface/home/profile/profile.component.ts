@@ -5,7 +5,6 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { finalize } from 'rxjs/operators';
 import { Student } from 'src/app/models/student.model';
-import { AuthService } from 'src/app/services/auth.service';
 import { StudentsService } from 'src/app/services/students.service';
 
 @Component({

@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="col-md-3 px-1" *ngFor="let item of comingEvents; let i = index;">
+    <div class="card shadow-sm">
+      <img [src]="item.imageURL" alt="" class="card-img-top">
+      <div class="card-body p-2">
+        <p class="mb-2"> {{ item.name }} </p>
+        <p class="size"><i class="bi bi-table"></i> {{ item.date | date:'mediumDate' }} </p>
+        <p class="size"><i class="bi bi-clock-fill"></i> {{ item.time }} </p>
+        <p class="size"><i class="bi bi-geo-alt-fill"></i> {{ item.location }} </p>
+      </div>
+    </div>
+  </div>
+</div>

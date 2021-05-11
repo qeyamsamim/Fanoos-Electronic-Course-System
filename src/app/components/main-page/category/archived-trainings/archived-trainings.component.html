@@ -1,0 +1,13 @@
+<div class="row row-margin">
+  <div class="col-md-12">
+    <h4 class="text-center pt-4 pb-2">Archived Trainings</h4>
+  </div>
+</div>
+<div *ngIf="isLoading" class="text-center">
+  <app-loading-spinner></app-loading-spinner>
+</div>
+<div *ngIf="!isLoading" class="row mb-4 justify-content-center">
+  <div class="col-md-2 px-1" *ngFor="let class of classes;">
+    <app-class-listing [data]="class"></app-class-listing>
+  </div>
+</div>

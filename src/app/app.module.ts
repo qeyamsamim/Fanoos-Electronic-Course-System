@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { AngularFireModule } from '@angular/fire';
@@ -57,6 +58,19 @@ import { ClassOutlineComponent } from './components/students-interface/home/clas
 import { ClassScheduleFeeComponent } from './components/students-interface/home/class-schedule-fee/class-schedule-fee.component';
 import { ClassPaymentMethodComponent } from './components/students-interface/home/class-payment-method/class-payment-method.component';
 import { ShortenPipe } from './shared/pipes/shorten.pipe';
+import { MainPageComponent } from './components/main-page/main-page.component';
+import { CarouselComponent } from './components/main-page/carousel/carousel.component';
+import { UpcomingTrainingsComponent } from './components/main-page/category/upcoming-trainings/upcoming-trainings.component';
+import { CategoryComponent } from './components/main-page/category/category.component';
+import { TestimonialsComponent } from './components/main-page/testimonials/testimonials.component';
+import { QuickLinksComponent } from './components/main-page/quick-links/quick-links.component';
+import { UpcomingEventsComponent } from './components/main-page/upcoming-events/upcoming-events.component';
+import { AdminInstructorComponent } from './components/admin-panel/admin-instructor/admin-instructor.component';
+import { InstructorsListComponent } from './components/admin-panel/admin-instructor/instructors-list/instructors-list.component';
+import { InstructorsPostComponent } from './components/admin-panel/admin-instructor/instructors-post/instructors-post.component';
+import { OngoingTrainingsComponent } from './components/main-page/category/ongoing-trainings/ongoing-trainings.component';
+import { ArchivedTrainingsComponent } from './components/main-page/category/archived-trainings/archived-trainings.component';
+import { EnglishTrainingsComponent } from './components/main-page/category/english-trainings/english-trainings.component';
 
 @NgModule({
   declarations: [
@@ -106,10 +120,24 @@ import { ShortenPipe } from './shared/pipes/shorten.pipe';
     ClassScheduleFeeComponent,
     ClassPaymentMethodComponent,
     ShortenPipe,
+    MainPageComponent,
+    CarouselComponent,
+    UpcomingTrainingsComponent,
+    CategoryComponent,
+    TestimonialsComponent,
+    QuickLinksComponent,
+    UpcomingEventsComponent,
+    AdminInstructorComponent,
+    InstructorsListComponent,
+    InstructorsPostComponent,
+    OngoingTrainingsComponent,
+    ArchivedTrainingsComponent,
+    EnglishTrainingsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
